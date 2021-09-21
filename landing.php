@@ -82,6 +82,9 @@
 							<?php break; case "welcome": ?>
 								<!-- From shortened link -->
 								<center class="message blue">Welcome to our online event.<br><b>Way to DPST39</b></center>
+							<?php break; case "github": ?>
+								<!-- From github repository link -->
+								<center class="message green">Greetings developer.<br>We're looking right for someone to help out desinging our Homepage</center>
 							<?php break; default: $wrongNo = "type"; break;
 						}
 					} else $wrongNo = "param";

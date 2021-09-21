@@ -1,0 +1,21 @@
+{
+  "name": "WayToDPST39",
+  "description" : "Introducing DPST | Online Camp by DPST38",
+  "version": "1.0",
+  "manifest_version": 2,
+  "app": {
+	"urls": ["https://inf.bodin.ac.th/e/WayToDPST39/home"]
+  },
+  "browser_action": {
+    "default_icon": "/resource/images/WayToDPST39"
+  },
+  "--commands": {
+    "_execute_browser_action": {
+      "suggested_key": {
+        "default": "Ctrl+Alt+Shift+W+D",
+        "mac": "MacCtrl+Alt+Shift+W+D"
+      },
+      "description": "Open WayToDPST39 website shortcuts"
+    }
+  }
+}

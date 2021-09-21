@@ -1,0 +1,17 @@
+{
+  "name": "WayToDPST39 - Online Camp by DPST38",
+  "short_name": "WayToDPST39",
+  "start_url": "/e/WayToDPST39/home",
+  "--orientation": "any",
+  "theme_color": "#76BEC2",
+  "background_color": "#E0F2F1",
+  "description": "By : Tecillium (UFDT) | For : WayToDPST39",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "/resource/images/WayToDPST39",
+      "sizes": "320x320",
+      "type": "image/png"
+    }
+  ]
+}

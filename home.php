@@ -28,6 +28,13 @@
 				color: var(--clr-pp-deep-purple-800);
 				font-family: "Modak"; font-size: 1.5em; font-weight: 100;
 			}
+			@media only screen and (max-width: 768px) {
+				html body main div.container > center.topic > h1 {
+					margin: 27.5px 0px 15px;
+					height: 50px;
+					overflow: visible;
+				}
+			}
 		</style>
 		<script type="text/javascript">
 			$(document).ready(function() {

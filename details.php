@@ -33,7 +33,7 @@
 			div.schd div.set div.tmln span.dot {
 				transform: translateY(calc(-50% - var(--boxH) / 2));
 				width: 30px; min-height: 15px; height: calc(100% * 2 / 3);
-				border-radius: 10px;
+				border-radius: 15px;
 			}
 			div.schd div.set div.date, div.schd div.set div.intl { display: flex; flex-direction: column; justify-content: space-around; }
 			div.schd div.set div.date { width: 175px; } div.schd div.set div.intl { min-width: 375px; }

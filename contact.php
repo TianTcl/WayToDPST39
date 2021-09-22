@@ -149,6 +149,9 @@
 				div.msn-chat div.msg-area div.msg-box > h4 { height: 12px; line-height: 12px; }
 				div.msn-chat div.msg-area div.msg-box > p { height: 8px; line-height: 8px; }
 			}
+			@media only screen and (overflow-block: scroll) {
+				html body main div.container div.app-logo { justify-content: flex-start; }
+			}
 		</style>
 		<script type="text/javascript">
 			$(document).ready(function() {

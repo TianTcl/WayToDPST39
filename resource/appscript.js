@@ -62,7 +62,7 @@ function private() {
 		if (path == "") { path = "index"; }
 
 		if (current_lang == null || current_lang == "" || current_lang == undefined) {
-			app.ui.change.lang("th", false); if (self == top) location.reload();
+			app.ui.change.lang("en", false); if (self == top) location.reload();
 		} else {
 			if (current_lang == "th") {
 				$("html body nav ul.nav li.back span").text("ย้อนกลับ");

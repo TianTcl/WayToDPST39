@@ -30,8 +30,8 @@
 			}
 			@media only screen and (max-width: 768px) {
 				html body main div.container > center.topic > h1 {
-					margin: 35px 0px 27.5px;
-					height: 75px;
+					margin: 35px 0px 17.5px;
+					height: 50px; line-height: 50px;
 					overflow: visible;
 				}
 			}

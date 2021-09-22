@@ -30,8 +30,8 @@
 			}
 			@media only screen and (max-width: 768px) {
 				html body main div.container > center.topic > h1 {
-					margin: 27.5px 0px 15px;
-					height: 50px;
+					margin: 35px 0px 27.5px;
+					height: 75px;
 					overflow: visible;
 				}
 			}
@@ -40,7 +40,7 @@
 			$(document).ready(function() {
 				setTimeout(function() {
 					Grade(document.querySelectorAll("div.imgfill"));
-				}, (navigator.userAgent.indexOf("Mac OS")>-1?500:50));
+				}, (navigator.userAgent.indexOf("Mac OS")>-1?750:125));
 			});
 		</script>
 		<script type="text/javascript" src="/resource/js/lib/grade.min.js"></script>

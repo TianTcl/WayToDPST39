@@ -14,6 +14,25 @@
 				background-image: linear-gradient(transparent 0px, var(--msg-bgc) 0.1px, transparent 0.2px);
 				background-size: 1px 0.3px; background-color: transparent;
 			}
+			html body main div.container .message img.pass {
+				width: 250px; height: 250px;
+				filter: drop-shadow(2.5px 5px 6.25px var(--clr-main-black-absolute)) hue-rotate(27.5deg) saturate(1.5);
+			}
+			html body main div.container div.img-wrapper {
+				box-shadow: 0px 0px var(--shd-huge) var(--fade-white-5);
+				display: flex; justify-content: center;
+			}
+			div.img-wrapper div.imgfill {
+				padding: 25px;
+				width: calc(100% - 50px);
+				text-align: center; object-fit: contain;
+				border-radius: 5px;
+				display: flex; justify-content: center;
+			}
+			div.img-wrapper div.imgfill img {
+				width: 360px; max-width: 100%;
+				border-radius: 25px;
+			}
 			html body main div.container div.ETgoHome { margin-top: 32.5px; padding: 7.5px 2.5px 2.5px; }
 			div.ETgoHome h1 {
 				margin: 0px 0px 10px;
@@ -30,25 +49,6 @@
 			div.ETgoHome center.portal a:hover {
 				text-decoration: none;
 				background-color: var(--fade-white-6);
-			}
-			html body main div.container div.img-wrapper {
-				box-shadow: 0px 0px var(--shd-huge) var(--fade-white-5);
-				display: flex; justify-content: center;
-			}
-			div.img-wrapper div.imgfill {
-				padding: 25px;
-				width: calc(100% - 50px);
-				text-align: center;
-				border-radius: 5px;
-				object-fit: contain;
-			}
-			div.img-wrapper div.imgfill img {
-				width: 360px; height: 360px;
-				border-radius: 25px;
-			}
-			html body main div.container .message img.pass {
-				width: 250px; height: 250px;
-				filter: drop-shadow(2.5px 5px 6.25px var(--clr-main-black-absolute)) hue-rotate(27.5deg) saturate(1.5);
 			}
 		</style>
 		<script type="text/javascript">

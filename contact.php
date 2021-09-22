@@ -14,7 +14,8 @@
 				display: flex; justify-content: space-evenly;
 			}
 			div.app-logo div.card {
-				width: var(--cardW); height: var(--cardH);
+				margin: 0px 2.5px;
+				min-width: var(--cardW); width: var(--cardW); height: var(--cardH);
 				border-radius: 7.5px; border: 1px solid var(--clr-pp-teal-a700);
 				background-color: var(--clr-bs-light);
 				overflow: hidden; transition: var(--time-tst-xfast);

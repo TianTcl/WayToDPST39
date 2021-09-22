@@ -156,7 +156,7 @@
 					Grade(document.querySelectorAll("/* div.app-logo div.card a div.img-container */ div.imgfill"));
 				}, (navigator.userAgent.indexOf("Mac OS")>-1?500:50));
 				// app.ui.notify(1, [1, JSON.stringify(navigator.userAgentData)]);
-			})
+			});
 		</script>
 		<script type="text/javascript" src="/resource/js/lib/grade.min.js"></script>
 	</head>

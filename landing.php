@@ -98,7 +98,7 @@
 				<div class="ETgoHome">
 					<h1><center><u>Welcome!</u></center></h1>
 					<center class="portal">
-						<a href="home"><?php echo $_COOKIE['set_lang']=="en"?"View event":"เข้าสู่เว็บไซต์"; ?></a>
+						<a href="home"><?php echo $_COOKIE['set_lang']=="th"?"เข้าสู่เว็บไซต์":"View event"; ?></a>
 					</center>
 				</div>
 			</div>

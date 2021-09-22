@@ -7,6 +7,7 @@
 	<head>
 		<?php require("resource/heading.php"); require("../../resource/hpe/init_ss.php"); ?>
 		<style type="text/css">
+			html body main div.container { overflow: visible; }
 			html body main div.container div.app-logo {
 				--cardW: calc(320px - 2px); --cardH: calc(420px - 2px);
 				padding: 5px 0px;

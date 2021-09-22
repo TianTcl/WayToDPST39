@@ -18,19 +18,25 @@
 			}
 			html body main div.container div.banner div.imgfill img { width: 100%; height: auto; }
 			html body main div.container > center.topic > h1 {
-				margin: 0px;
-				color: transparent;
+				margin: 20px 0px 10px;
+				color: transparent; -webkit-background-clip: text;
 				font-family: "Ranchers"; font-size: 2.5em;
-				background-clip: text; background-image: linear-gradient(to bottom, var(--clr-pp-teal-a200), var(--clr-pp-teal-a700));
+				background-image: linear-gradient(to bottom, var(--clr-pp-teal-a200), var(--clr-pp-teal-a700));
 			}
 			html body main div.container > center.topic > h4 {
-				color: var(--clr-pp-deep-purple-a200);
+				margin: 0px;
+				color: var(--clr-pp-deep-purple-800);
 				font-family: "Modak"; font-size: 1.5em; font-weight: 100;
 			}
 		</style>
 		<script type="text/javascript">
-			
+			$(document).ready(function() {
+				setTimeout(function() {
+					Grade(document.querySelectorAll("div.imgfill"));
+				}, (navigator.userAgent.indexOf("Mac OS")>-1?500:50));
+			});
 		</script>
+		<script type="text/javascript" src="/resource/js/lib/grade.min.js"></script>
 	</head>
 	<body>
 		<?php require("resource/header.php"); ?>

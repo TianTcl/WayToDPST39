@@ -211,6 +211,19 @@
 						<p><span>WayToDPST39</span></p>
 					</div></div>
 				</div>
+				<p>Feel free to chat together with us.</p>
+				<div class="msn-chat">
+					<div class="head">
+						<span class="tap suggest-click"></span>
+						<a href="/go?url=https%3A%2F%2Fbod.in.th%2Fw2d39loc" target="_blank">
+							<div class="imgfill"><img src="/resource/images/nav-share-line.png" data-dark="false"></div>
+						</a>
+					</div>
+					<div class="msg-area"><div class="msg-box">
+						<h4><span>Line</span></h4>
+						<p><span>Open chat</span></p>
+					</div></div>
+				</div>
 			</div>
 		</main>
 		<?php require("../../resource/hpe/material.php"); ?>

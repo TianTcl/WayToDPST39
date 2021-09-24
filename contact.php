@@ -215,7 +215,7 @@
 				<div class="msn-chat">
 					<div class="head">
 						<span class="tap suggest-click"></span>
-						<a href="/go?url=https%3A%2F%2Fbod.in.th%2Fw2d39loc" target="_blank">
+						<a href="/go?url=https%3A%2F%2Fbod.in.th%2F!w2d39loc" target="_blank">
 							<div class="imgfill"><img src="/resource/images/nav-share-line.png" data-dark="false"></div>
 						</a>
 					</div>

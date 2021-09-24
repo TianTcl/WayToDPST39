@@ -76,8 +76,8 @@
 				}
 				html body main div.container section.blog div.sub > * { max-width: 82.5%; }
 				section.blog div.sub .msg:after { width: 10px; height: 10px; }
-				section.blog div.sub .msg.q:after { left: 5px; transform: translateY(calc(-100% - 2.5px)) rotate(135deg); }
-				section.blog div.sub .msg.a:after { right: 5px; transform: translateY(calc(-100% - 2.5px)) rotate(-45deg); }
+				section.blog div.sub .msg.q:after { right: 5px; transform: translateY(calc(-100% - 2.5px)) rotate(-45deg); }
+				section.blog div.sub .msg.a:after { left: 5px; transform: translateY(calc(-100% - 2.5px)) rotate(135deg); }
 				div.register div.btn-warp a[role="button"] { font-size: 18.75px; }
 			}
 		</style>

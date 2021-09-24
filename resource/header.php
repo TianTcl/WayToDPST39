@@ -13,6 +13,7 @@
 				<a href="/e/WayToDPST39/details"><span>Schedule</span></a>
 				<a href="/e/WayToDPST39/register"><span>Register</span></a>
 				<a href="/e/WayToDPST39/contact"><span>Contact</span></a>
+				<a href="/e/WayToDPST39/articles"><span>ร่วมสนุก</span></a>
 			</div>
 	</div></section>
     <section class="slider hscroll sscroll"><div class="ocs">

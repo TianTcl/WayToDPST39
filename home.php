@@ -51,16 +51,16 @@
 			}
 			section.blog div.sub .msg.q {
 				--bd: 1.25px solid var(--clr-main-black-absolute); --bg: var(--clr-main-white-absolute);
-				margin: 0px auto 10px 0px;
-				font-family: "THKodchasal", "Itim";
-			}
-			section.blog div.sub .msg.q:after { left: 3.5px; transform: translateY(calc(-100% - 6.25px)) rotate(135deg); }
-			section.blog div.sub .msg.a {
-				--bd: 1.25px solid var(--clr-main-black-absolute); --bg: var(--clr-main-white-absolute);
 				margin: 0px 0px 10px auto;
 				font-family: "THKrub", "Itim";
 			}
-			section.blog div.sub .msg.a:after { right: 3.5px; transform: translateY(calc(-100% - 6.25px)) rotate(-45deg); }
+			section.blog div.sub .msg.q:after { right: 3.5px; transform: translateY(calc(-100% - 6.25px)) rotate(-45deg); }
+			section.blog div.sub .msg.a {
+				--bd: 1.25px solid var(--clr-main-black-absolute); --bg: var(--clr-main-white-absolute);
+				margin: 0px auto 10px 0px;
+				font-family: "THKodchasal", "Itim";
+			}
+			section.blog div.sub .msg.a:after { left: 3.5px; transform: translateY(calc(-100% - 6.25px)) rotate(135deg); }
 			html body main div.container div.register { padding-top: 20px; }
 			div.register div.btn-warp { display: flex; justify-content: center; }
 			div.register div.btn-warp a[role="button"] {
@@ -133,6 +133,11 @@
 						<span class="msg a">4) เมื่อเข้ามาแล้วน้องๆจะได้พบเจอกับสังคมของนักเรียนพสวท. และได้มีโอกาสทำความรู้จักและฟังคำแนะนำจากรุ่นพี่ที่จบไปแล้ว</span>
 						<span class="msg a">5) การเรียนรู้มักจะอยู่ในรูปแบบของการปฏิบัติจริงซะส่วนใหญ่คือจะมีการทำ LAB และอีกมากมาย ทำให้น้องๆได้นำความรู้ไปใช้จริงไม่ใช่แค่เพียงเชิงทฤษฎี</span>
 						<span class="msg a">6) มีการจัดทำค่ายวิทยาศาสตร์ภาคฤดูร้อนสำหรับเด็กนักเรียนทุน พสวท.เท่านั้น</span>
+					</div>
+					<div class="sub">
+						<span class="msg q">จบไปเป็นนักวิทยาศาสตร์เท่านั้นหรอ???</span>
+						<span class="msg a">คำตอบคือไม่จริง</span>
+						<span class="msg a">เพราะปัจจุบันโครงการได้มีการเปิดกว้างมากขึ้นทำให้นักเรียนสามารถเป็นได้ทุกอาชีพที่น้องสนใจ เพียงแต่จะเน้นไปทางสาขาเกี่ยวกับวิทยาศาสตร์ เพราะโครงการนี้ต้องการผลักดันศักยภาพทางวิทยาศาสตร์และเทคโนโลยี</span>
 					</div>
 					<!--div class="sub">
 						<span class="msg q"></span>

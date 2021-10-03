@@ -14,6 +14,11 @@
 				<a href="/e/WayToDPST39/register"><span>Register</span></a>
 				<a href="/e/WayToDPST39/contact"><span>Contact</span></a>
 				<a href="/e/WayToDPST39/articles"><span>ร่วมสนุก</span></a>
+				<?php
+					if ($has_perm) echo '<a href="/e/WayToDPST39/organize/"><span>จัดการกิจกรรม</span></a>'.
+						'<a onClick="sys.auth.out(\'e/WayToDPST39/landing?from=organize\')" href="javascript:void(0)"><span>ออกจากระบบ</span></a>';
+					else echo '<a onClick="sys.auth.orize(\'e/WayToDPST39/organize/\')" href="javascript:void(0)"><span>เข้าสู่ระบบ</span></a>';
+				?>
 			</div>
 	</div></section>
     <section class="slider hscroll sscroll"><div class="ocs">

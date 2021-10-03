@@ -321,20 +321,22 @@ function initial_app() {
 	var md_open = function(txt, act) {
 		if (!md_var.showing && txt!="" && typeof act !== "undefined") {
 			$("html body section.modal").attr("show", "true");
-			$("html body section.modal span.ctxt").text(txt);
+			$("html body section.modal > span.ctxt").text(txt);
 			if (act.response==undefined) {
-				$("html body section.modal div span:last-child a:last-child").attr("data-text", act.name);
-				$("html body section.modal div span:last-child a:last-child").attr("href", act.href ?? "javascript:app.ui.modal.close()");
+				$("html body section.modal > div > span:last-child > a:last-child").attr("data-text", act.name);
+				$("html body section.modal > div > span:last-child > a:last-child").attr("href", act.href ?? "javascript:app.ui.modal.close()");
+				$("html body section.modal > div > span:last-child > a:last-child").removeAttr("onClick");
 			} else {
 				if (act.response=="confirm") {
-					let i, s = ""; for (i = 0; i<act.option.length-1; i++) s += '<a role="button" data-text="'+act.option[i]+'" href="javascript:app.ui.modal.confirm('+(typeof act.values[i] === "number"? act.values[i].toString():"'"+act.values[i]+"'")+')"></a>'; $("html body section.modal div span:last-child").prepend($(s));
-					$("html body section.modal div span:last-child a:last-child").attr("data-text", act.option[i]);
-					$("html body section.modal div span:last-child a:last-child").attr("href", "javascript:app.ui.modal.confirm("+(typeof act.values[i] === "number"? act.values[i].toString():"'"+act.values[i]+"'")+")");
+					let i, s = ""; for (i = 0; i<act.option.length-1; i++) s += '<a role="button" class="ripple-click" data-text="'+act.option[i]+'" onClick="app.ui.modal.confirm('+(typeof act.values[i] === "number"? act.values[i].toString():"'"+act.values[i]+"'")+')" href="javascript:void(0)" draggable="false"></a>'; $("html body section.modal > div > span:last-child").prepend($(s));
+					$("html body section.modal > div > span:last-child > a:last-child").attr("data-text", act.option[i]);
+					$("html body section.modal > div > span:last-child > a:last-child").attr("onClick", "app.ui.modal.confirm("+(typeof act.values[i] === "number"? act.values[i].toString():"'"+act.values[i]+"'")+")");
+					$("html body section.modal > div > span:last-child > a:last-child").attr("href", "javascript:void(0)");
 				} else if (act.response=="string") {
-					$("html body section.modal span.ctxt").text(txt);
-					$("html body section.modal div span:last-child a:last-child").attr("data-text", "Submit");
-					$("html body section.modal div span:last-child a:last-child").attr("href", "javascript:app.ui.modal.submit()");
-					$("html body section.modal span.ctxt").append($('<input name="modal-response" type="'+act.type+'" />'));
+					$("html body section.modal > div > span:last-child > a:last-child").attr("data-text", "Submit");
+					$("html body section.modal > div > span:last-child > a:last-child").attr("onClick", "app.ui.modal.submit()");
+					$("html body section.modal > div > span:last-child > a:last-child").attr("href", "javascript:void(0)");
+					$("html body section.modal > span.ctxt").append($('<input name="modal-response" type="'+act.type+'" />'));
 					setTimeout(function() { $('html body section.modal span.ctxt input[name="modal-response"]').focus(); }, 1250);
 				}
 				md_var.cfx = act.cfx;
@@ -347,7 +349,7 @@ function initial_app() {
 		mwf.fadeOut(500, function() {
 			mwf.removeAttr("show"); mwf.removeAttr("style");
 			$("html body section.modal span.ctxt").html("");
-			document.querySelector("html body section.modal div span:last-child").innerHTML = '<a role="button" class="filled"></a>';
+			document.querySelector("html body section.modal > div > span:last-child").innerHTML = '<a role="button" class="filled ripple-click" draggable="false"></a>';
 		});
 		md_var.showing = false;
 	}

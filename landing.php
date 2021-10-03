@@ -85,6 +85,9 @@
 							<?php break; case "github": ?>
 								<!-- From github repository link -->
 								<center class="message green">Greetings developer.<br>We're looking right for someone to help out desinging our Homepage</center>
+							<?php break; case "organize": ?>
+								<!-- From /organize/ logout -->
+								<center class="message gray">You have been logged out<br>To manage event again, please <a onClick="sys.auth.orize('e/WayToDPST39/organize/')" href="javascript:void(0)">sign in</a></center>
 							<?php break; default: $wrongNo = "type"; break;
 						}
 					} else $wrongNo = "param";

@@ -173,23 +173,23 @@ html body section.modal label {
 }
 html body section.modal label:hover { background-color: var(--fade-black-8); }
 html body section.modal label:active { color: var(--clr-bs-red); }
-html body section.modal span.ctxt { font-size: 15px; font-family: 'Sarabun', sans-serif; font-weight: bold; }
-html body section.modal span.ctxt input {
+html body section.modal > span.ctxt { font-size: 15px; font-family: 'Sarabun', sans-serif; font-weight: bold; }
+html body section.modal > span.ctxt input {
 	margin: 10px 6.25px 0px; padding: 2.5px 5px;
 	width: calc(100% - 10px - 12.5px - 2.5px); height: 20px;
 	border-radius: 2.5px; border: 1.25px solid var(--clr-gg-blue-700);
 	font-size: 15px; font-family: 'Sarabun', sans-serif;
 	display: block; transition: var(--time-tst-medium);
 }
-html body section.modal span.ctxt input:focus { box-shadow: 0px 0px var(--shd-small) var(--clr-gg-blue-100); }
-html body section.modal div {
+html body section.modal > span.ctxt input:focus { box-shadow: 0px 0px var(--shd-small) var(--clr-gg-blue-100); }
+html body section.modal > div {
 	padding: 10px 0px;
 	width: 100%; height: calc(var(--bh) + 7.5px);
 	display: flex; flex-direction: row; justify-content: space-between;
 }
-html body section.modal div span { display: block; }
-html body section.modal div span:last-child { overflow-y: auto; }
-html body section.modal div span a[role="button"] {
+html body section.modal > div > span { display: block; }
+html body section.modal > div > span:last-child { overflow-y: auto; }
+html body section.modal > div > span a[role="button"] {
 	margin: 0px 6.25px; padding: 0px 10px;
 	width: auto; height: var(--bh);
 	text-decoration: none;
@@ -197,32 +197,32 @@ html body section.modal div span a[role="button"] {
 	border-radius: 5px;
 	display: inline-block; cursor: pointer; overflow: hidden; transition: var(--time-tst-xfast);
 }
-html body section.modal div span a.filled[role="button"] { background-color: var(--clr-gg-blue-300); }
-html body section.modal div span a[role="button"]:not(.filled) { border: 0.5px solid var(--clr-gg-blue-300); }
-html body section.modal div span a[role="button"]:before {
+html body section.modal > div > span a.filled[role="button"] { background-color: var(--clr-gg-blue-300); }
+html body section.modal > div > span a[role="button"]:not(.filled) { border: 0.5px solid var(--clr-gg-blue-300); }
+/* html body section.modal > div > span a[role="button"]:before {
 	position: relative; left: calc(50% - 8.5px); transform: scale(0);
 	width: auto; height: var(--bh);
 	background-color: var(--clr-gg-blue-700); border-radius: calc(var(--bh) / 2);
 	display: block; content: ""; pointer-events: none; transition: var(--time-tst-xfast);
 }
-html body section.modal div span a[role="button"]:not(.filled):before { background-color: #A0A0C87F; }
-html body section.modal div span a[role="button"]:active:before {
+html body section.modal > div > span a[role="button"]:not(.filled):before { background-color: #A0A0C87F; }
+html body section.modal > div > span a[role="button"]:active:before {
 	transform: scale(5, 1.25); border-radius: 5px;
-	animation: btn_pressed var(--time-tst-xfast) 1 linear;
+	animation: modal_btn_pressed var(--time-tst-xfast) 1 linear;
 }
-@keyframes btn_pressed {
+@keyframes modal_btn_pressed {
 	0% { transform: scale(0); border-radius: 15px; }
 	80%,100% { transform: scale(5, 1.25); border-radius: 5px; }
-}
-html body section.modal div span a[role="button"]:after {
-	position: relative; top: -100%;
-	font-size: 12.5px; line-height: var(--bh); font-family: 'Quicksand', sans-serif;
+} */
+html body section.modal > div > span a[role="button"]:after {
+	position: relative; /* top: -100%; */
+	font-size: 12.5px; line-height: var(--bh); font-family: 'Quicksand', 'Sarabun', sans-serif;
 	color: #111; text-overflow: ellipsis; white-space: nowrap;
 	display: block; content: attr(data-text); pointer-events: none; overflow: hidden;
 }
-html body section.modal div span a.filled[role="button"]:after { color: #FEFEFE; }
-html body section.modal div span a[role="button"]:hover { background-color: #C8C8FA7F; }
-html body section.modal div span a.filled[role="button"]:hover { background-color: var(--clr-gg-blue-500); }
+html body section.modal > div > span a.filled[role="button"]:after { color: #FEFEFE; }
+html body section.modal > div > span a[role="button"]:hover { background-color: #C8C8FA7F; }
+html body section.modal > div > span a.filled[role="button"]:hover { background-color: var(--clr-gg-blue-500); }
 /* Lightbox */
 html body section.lightbox {
 	position: fixed; top: 0px; left: 0px; z-index: 7;

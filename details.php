@@ -67,7 +67,7 @@
 							<span class="time">15 October 2021</span>
 						</div>
 						<div class="intl">
-							<span class="info">เปิดรับลงทะเบียนให้น้องๆได้เข้าร่วมค่าย</span>
+							<span class="info">เปิดรับ<a href="register">ลงทะเบียน</a>ให้น้องๆได้เข้าร่วมค่าย</span>
 							<span class="info">ปิดรับลงทะเบียน</span>
 						</div>
 					</div>

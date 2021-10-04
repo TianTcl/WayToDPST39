@@ -83,6 +83,10 @@
 			html body main div.container div.form div.choice input[type="radio"]:checked + div.radio > span:before { transform: translate(-0.5px, calc(-50% - 0.5px)) scale(1); }
 			html body main div.container div.form div.choice div.label { padding-left: 5px; }
 			div.form section#form-3 div.centerup { display: flex; justify-content: space-evenly; }
+			div.form section#form-4 img.pass {
+				width: 250px; height: 250px;
+				filter: drop-shadow(2.5px 5px 6.25px var(--clr-main-black-absolute)) hue-rotate(27.5deg) saturate(1.5);
+			}
 			@media only screen and (max-width: 768px) {
 				html body main div.container div.form input + label { transform: translate(calc(var(--mvlbt) + 7.5px), 12.5px); }
     			html body main div.container div.form input:focus + label, html body main div.container div.form input[filled="true"] + label { transform: translate(calc(var(--mvlbt) - 7.5px), -4px) scale(0.75); }
@@ -111,19 +115,21 @@
 							var dat = JSON.parse(res);
 							if (dat.success) {
 								fa.account = enc; $("div.form section#form-1").attr("disabled", "");
-								$("div.form section#form-2").toggle("height");
+								$("div.form section#form-2").toggle("blind");
 								if (dat.answered) {
-									$("div.form section#form-5").toggle("height");
+									$("div.form section#form-5").toggle("blind");
 									var chosen = document.querySelector('div.form section#form-2 input[name="perm"][value="'+dat.answer+'"]').parentNode;
 									formApp.choose(chosen); chosen.setAttribute("disabled", "");
 									document.querySelector("div.form section#form-2 button").disabled = true;
-									btn.innerText = btn.innerText+"แล้ว";
 								} app.io.confirm("leave");
+								btn.innerText = btn.innerText+"แล้ว";
 							} else app.ui.notify(1, dat.reason);
 							btn.disabled = false;
 						}); else {
 							app.ui.notify(1, [2, "Please fill up all fields above."]);
 							btn.disabled = false;
+							if (raw == "") $('div.form section#form-1 input[name="iEmail"]').focus();
+							else if (enc == "") $('div.form section#form-1 input[name="iName"] + input').focus();
 						}
 					}, allow: function() {
 						var btn = document.querySelector("div.form section#form-2 button"); btn.disabled = true;
@@ -132,7 +138,7 @@
 							fa.perm = ans;
 							var txt = $('div.form section#form-2 input[name="perm"]:checked ~ div.label span').text().replaceAll(" ", "").replace(":", "");
 							document.querySelector("div.form section#form-3 output").innerText = txt;
-							$("div.form section#form-2").toggle("height"); $("div.form section#form-3").toggle("height");
+							$("div.form section#form-2").toggle("blind"); $("div.form section#form-3").toggle("blind");
 							btn.disabled = false;
 						} else app.ui.notify(1, [2, "Invalid option. Please choose again"]);
 					}, confirm: function(permission) {
@@ -143,19 +149,20 @@
 								var dat = JSON.parse(res);
 								if (dat.success) {
 									app.ui.notify(1, [0, "Your permission has been saved"]);
-									$("div.form section#form-4").toggle("height"); // $("div.form section#form-3").attr("disabled", "");
+									$("div.form section#form-4").toggle("blind"); // $("div.form section#form-3").attr("disabled", "");
 									$("div.form section#form-3").addClass("message cyan");
-									$("div.form section#form-3 div.centerup").toggle("height");
+									$("div.form section#form-3 div.centerup").toggle("slide");
 									btn.removeAttr("disabled");
-									$("div.form section#form-1 button").toggle("width"); $("div.form section#form-1").addClass("done");
+									$("div.form section#form-1 button").toggle("slide"); $("div.form section#form-1").addClass("done");
+									$(window).off("beforeunload");
 								} else app.ui.notify(1, dat.reason);
 							}); else {
 								app.ui.notify(1, [2, "Invalid option. Please choose again"]);
-								$("div.form section#form-2").toggle("height"); $("div.form section#form-3").toggle("height");
+								$("div.form section#form-2").toggle("blind"); $("div.form section#form-3").toggle("blind");
 								btn.removeAttr("disabled");
 							}
 						} else {
-							$("div.form section#form-2").toggle("height"); $("div.form section#form-3").toggle("height");
+							$("div.form section#form-2").toggle("blind"); $("div.form section#form-3").toggle("blind");
 							btn.removeAttr("disabled");
 						}
 					}, choose: function(me) {
@@ -244,8 +251,8 @@
 							<button class="green" onClick="formApp.confirm(true)">ยืนยันการให้สิทธิ์</button>
 						</div>
 					</section>
-					<section id="form-4">
-						
+					<section id="form-4" class="message green">
+						<center><img class="pass" src="../resource/tick.png"></center>
 					</section>
 				</div>
 			</div>

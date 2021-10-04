@@ -22,8 +22,8 @@
                     } $sql = rtrim($sql, ",")." WHERE smsid='".$data['smsid']."'";
                 } if (isset($sql)) {
                     $success = $db -> query($sql);
-                    if ($success) { echo '{"success": true, "email": "'.$data['ctEmail'].'"}'; slog("WayToDPST39", "register", ($cmd??""), $data['ctEmail'], "pass", "", $data['smsid']); }
-                    else { echo '{"success": false}'; slog("WayToDPST39", "register", ($cmd??""), $data['ctEmail'], "fail", "", $data['smsid']); }
+                    if ($success) { echo '{"success": true, "email": "'.$data['ctEmail'].'"}'; slog("botGoogle", "WayToDPST39", "register", ($cmd??""), $data['ctEmail'], "pass", "", $data['smsid']); }
+                    else { echo '{"success": false}'; slog("botGoogle", "WayToDPST39", "register", ($cmd??""), $data['ctEmail'], "fail", "", $data['smsid']); }
                 } else echo '{"success": false}';
             } else if ($cmd == "get") {
                 $id = strval(intval($tcl -> decode(str_replace("-", "", $attr)."5d3"))/138-138);
@@ -51,7 +51,7 @@
                             "school" => htmlspecialchars($info["school"]),
                             "grade" => gradecode2text($info["grade"]),
                             "Line" => $info["ctLine"],
-                            "Phone" => "0".$info["ctPhone"],
+                            "Phone" => $info["ctPhone"],
                             "Email" => $info["ctEmail"],
                             "IG" => $info["ctIG"],
                             "FB" => $info["ctFB"],
@@ -69,9 +69,43 @@
                 $decision = $db -> real_escape_string(trim($attr[1]));
                 if ($decision == "A" || $decision == "D") {
                     $success = $db -> query("UPDATE WayToDPST39_application SET status='$decision' WHERE formid='$id'");
-                    if ($success) { echo '{"success": true, "email": "'.$data['ctEmail'].'"}'; slog("WayToDPST39", "register", "set", $decision, "pass"); }
-                    else { echo '{"success": false, "reason": [3, "Unable to fetch data from database"]}'; slog("WayToDPST39", "register", "set", $decision, "fail", "", "InvalidQuery"); }
-                } else echo '{"success": false, "reason": [2, "Invalid response type"]}';
+                    if ($success) { echo '{"success": true, "email": "'.$data['ctEmail'].'"}'; slog($id, "WayToDPST39", "register", "set", $decision, "pass"); }
+                    else { echo '{"success": false, "reason": [3, "Unable to fetch data from database"]}'; slog($id, "WayToDPST39", "register", "set", $decision, "fail", "", "InvalidQuery"); }
+                } else { echo '{"success": false, "reason": [2, "Invalid response type"]}'; slog($id, "WayToDPST39", "register", "set", $decision, "fail", "", "NotEligible"); }
+            } else if ($cmd == "find") {
+                $q = $db -> real_escape_string($_GET['q']);
+				if ($attr<>"") {
+					$exclude = implode("','", explode(",", ($db -> real_escape_string($attr))));
+					$exc = ($attr<>"" ? "AND NOT ctEmail IN('".$exclude."')" : "");
+                } else $exc = ""; $rs = '<span onClick="fmn.end(null)"><font style="color: var(--clr-bs-red);">ลบออก</font></span>'; if ($q<>"") {
+                    $search = $db -> query("SELECT ptpid,namen,namef FROM WayToDPST39_attendees WHERE (namef LIKE '$q%' OR namel LIKE '$q%' OR namen LIKE '$q%') $exc ORDER BY namen");
+                    if ($search -> num_rows > 0) while ($er = $search -> fetch_assoc()) {
+                        $referer = substr($tcl -> encode((intval($er['ptpid'])+138)*138, 1), 0, 13); // 5d3
+						$referer = substr($referer, 0, 4)."-".substr($referer, 4, 5)."-".substr($referer, 9, 4);
+                        $rs .= '<span onClick="fmn.end(\''.$referer.'\', this)">'.$er['namen'].' '.$er['namef'].'</span>';
+                    }
+				} echo $rs;
+            }
+		} else if ($app == "formPerm") {
+			if ($cmd == "iden") {
+				$userID = $db -> real_escape_string(strval(intval($tcl -> decode(str_replace("-", "", trim($attr['user']))."5d3"))/138-138));
+                $email = $db -> real_escape_string(trim($attr['email']));
+                $success = $db -> query("SELECT allowPerm FROM WayToDPST39_attendees WHERE ptpid='$userID' AND email='$email'");
+                if ($success) {
+                    if ($success -> num_rows == 1) {
+                        $info = $success -> fetch_array(MYSQLI_ASSOC); $ans = $info['allowPerm'];
+                        if ($info['allowPerm'] == "A") { echo '{"success": true, "answered": false}'; slog($userID, "WayToDPST39", "account", "identify", "unans", "pass"); }
+                        else { echo '{"success": true, "answered": true, "answer": "'.$ans.'"}'; slog($userID, "WayToDPST39", "account", "identify", "ans $ans", "pass"); }
+                    } else { echo '{"success": false, "reason": [1, "Your information doesn\'t match any"]}'; slog($userID, "WayToDPST39", "account", "identify", "ans $ans", "fail", "", "NotExisted"); }
+                } else { echo '{"success": false, "reason": [3, "Failed to identify your information"]}'; slog($userID, "WayToDPST39", "account", "identify", "ans $ans", "fail", "", "InvalidQuery"); }
+			} else if ($cmd == "set") {
+                $userID = $db -> real_escape_string(strval(intval($tcl -> decode(str_replace("-", "", trim($attr['user']))."5d3"))/138-138));
+                $answer = $db -> real_escape_string(trim($attr['ans']));
+                if (in_array($answer, array("V", "S", "N"))) {
+                    $success = $db -> query("UPDATE WayToDPST39_attendees SET allowPerm='$answer' WHERE ptpid='$userID'");
+                    if ($success) { echo '{"success": true}'; slog($userID, "WayToDPST39", "account", "set", "ans $answer", "pass"); }
+                    else { echo '{"success": false, "reason": [3, "Unabe to update permission. Please try again"]}'; slog($userID, "WayToDPST39", "account", "setPerm", "ans $answer", "fail", "", "InvalidQuery"); }
+                } else { echo '{"success": false, "reason": [2, "Invalid option. Please select again"]}'; slog($userID, "WayToDPST39", "account", "setPerm", "ans $answer", "fail", "", "NotEligible"); }
             }
 		} /* else if ($app == "") {
 			if ($cmd == "") {

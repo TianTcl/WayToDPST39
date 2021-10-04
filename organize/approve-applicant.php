@@ -135,7 +135,7 @@
 						if (dat.success) {
 							// $("div.app-card").text(JSON.stringify(dat.info));
 							for (title in dat.info) { if (title != "status") {
-								let answer = (["", "0"].includes(dat.info[title]) ? "&nbsp;" : dat.info[title]);
+								let answer = ( dat.info[title] == "" ? "&nbsp;" : dat.info[title] );
 								document.querySelector('span.wrapup div.tbs > div[order] output[name="'+title+'"]').innerHTML = answer;
 							} } document.querySelector("span.wrapup div.set button").innerHTML = '<span class="ripple-effect"></span>'+(dat.info.status != "W" ? "เปลี่ยนการตัดสินใจ" : "ตัดสินใจ");
 							switch (dat.info.status) {

@@ -39,12 +39,12 @@
 						}
 					});
 					$("html body main div.container center.message span.wanted").on("click", function() {
-						if (reallyWant) $("html body main div.container center.message + form.special").toggle("height");
+						if (reallyWant) $("html body main div.container center.message + form.special").toggle("blind");
 					});
 				} else {
 					$("html body main div.container center.message:nth-of-type(2)").hide();
 					$("html body main div.container center.message span.wanted").on("click", function() {
-						$("html body main div.container center.message:nth-of-type(2)").toggle("height");
+						$("html body main div.container center.message:nth-of-type(2)").toggle("blind");
 					});
 					setTimeout(function() { $("html body main div.container center.message span.wanted").trigger("click"); }, 1250);
 				}

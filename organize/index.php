@@ -3,7 +3,10 @@
 	$header_title = "Organize - Menu";
 	$header_desc = "เลือกการกระทำการของผู้จัดกิจกรรม";
 
-	if (!isset($_SESSION['auth'])) header("Location: /$my_url");
+	$ua = $_SERVER['HTTP_USER_AGENT'];
+	if (!(strpos("facebookexternalhit/1.1;line-poker/1.0", $ua)>-1 || strpos("facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)", $ua)>-1)) {
+		if (!isset($_SESSION['auth'])) header("Location: /$my_url");
+	}
 ?>
 <!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml">

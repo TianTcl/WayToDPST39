@@ -3,10 +3,13 @@
 	$header_title = "Organize - Approve Applications";
 	$header_desc = "คัดกรองใบสมัครเข้าร่วมกิจกรรมค่าย";
 
-	if (!isset($_SESSION['auth'])) header("Location: /$my_url"); if ($has_perm) {
-		require_once("../../../resource/php/lib/TianTcl.php"); require("../../resource/db_connect.php");
-		$refs = $db -> query("SELECT formid,status FROM WayToDPST39_application");
-		$db -> close();
+	$ua = $_SERVER['HTTP_USER_AGENT'];
+	if (!(strpos("facebookexternalhit/1.1;line-poker/1.0", $ua)>-1 || strpos("facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)", $ua)>-1)) {
+		if (!isset($_SESSION['auth'])) header("Location: /$my_url"); if ($has_perm) {
+			require_once("../../../resource/php/lib/TianTcl.php"); require("../../resource/db_connect.php");
+			$refs = $db -> query("SELECT formid,status FROM WayToDPST39_application");
+			$db -> close();
+		}
 	}
 ?>
 <!doctype html>

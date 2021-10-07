@@ -123,10 +123,11 @@
 				$('select[name="app-id"]').on("change", regisApp.view);
 				regisApp.show(2);
 				$(window).on("resize", function() {
-					$("span.wrapup div.tbs").css("--h", $('span.wrapup div.tbs > div[order="'+page.toString()+'"]').outerHeight().toString()+"px");
+					$("span.wrapup div.tbs").css("--h", $('span.wrapup div.tbs > div[order="'+regisApp.vPage.toString()+'"]').outerHeight().toString()+"px");
 				});
 			});
 			var regisApp = {
+				vPage: 3,
 				view: function() {
 					document.querySelector('select[name="app-id"]').disabled = true;
 					regisApp.curOpt = $('select[name="app-id"] option:checked');
@@ -150,6 +151,7 @@
 						} else app.ui.notify(1, dat.reason);
 					});
 				}, show: function(page) {
+					regisApp.vPage = page;
 					$("span.wrapup div.tab div.active").removeClass("active");
 					$('span.wrapup div.tab div[onClick="regisApp.show('+page.toString()+')"]').addClass("active");
 					$("span.wrapup div.tab + span.bar-responsive").css("--show", page.toString());

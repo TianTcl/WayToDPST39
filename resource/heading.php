@@ -54,6 +54,7 @@
 		<!-- Resources loading -->
 		<link rel="stylesheet" href="/e/WayToDPST39/resource/appstyle.css">
 		<link rel="stylesheet" href="/resource/css/core/stylevar.css">
+		<link rel="stylesheet" href="/resource/css/core/colortheme.css">
 		<link rel="stylesheet" href="/e/WayToDPST39/resource/customize.css">
 		<link rel="stylesheet" href="/resource/css/core/appobj.css">
 		<link rel="stylesheet" href="/resource/css/core/forms.css">
